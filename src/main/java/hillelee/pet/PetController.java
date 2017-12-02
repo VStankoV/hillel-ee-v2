@@ -25,7 +25,6 @@ public class PetController {
 	
 	//	@RequestMapping(value = "/greeting", method = RequestMethod.GET)
 	@GetMapping("/greeting")
-	
 	public String helloworld() {
 		return "Hello world";
 	}
