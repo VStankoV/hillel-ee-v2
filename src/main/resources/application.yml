@@ -1,0 +1,5 @@
+clinic:
+  name: 'myClinic'
+  workingHours: '8-19'
+
+spring.jackson.property-naming-strategy: SNAKE_CASE
