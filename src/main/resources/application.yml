@@ -2,4 +2,16 @@ clinic:
   name: 'myClinic'
   workingHours: '8-19'
 
-spring.jackson.property-naming-strategy: SNAKE_CASE
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate.ddl-auto: create
+  datasource:
+    url: jdbc:postgresql:pet_clinic
+    username: postgres
+    password: postgres
+
+#
+
+#logging.level.org.hibernate: DEBUG

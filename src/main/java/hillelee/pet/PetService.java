@@ -1,21 +1,16 @@
 package hillelee.pet;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 //@Service
 @RequiredArgsConstructor
 public class PetService {
-	private final PetRepository petRepository;
+	private final PetJpnRepository petRepository;
 	
 	
 	public List<Pet> getPets(Optional<String> specie) {
@@ -40,6 +35,8 @@ public class PetService {
 	}
 	
 	public Optional<Pet> delete(Integer id) {
-		return petRepository.delete(id);
+		Optional<Pet> optionalPet = petRepository.findById(id);
+		optionalPet.ifPresent(pet -> petRepository.delete(pet.getId()));
+		return optionalPet;
 	}
 }
