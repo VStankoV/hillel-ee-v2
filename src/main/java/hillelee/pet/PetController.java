@@ -2,11 +2,15 @@ package hillelee.pet;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,6 +20,7 @@ import java.util.stream.Collectors;
 @RestController
 @AllArgsConstructor
 public class PetController {
+	
 	private final PetService petService;
 	
 	
@@ -26,8 +31,12 @@ public class PetController {
 	}
 	
 	@GetMapping("/pets")
-	public List<Pet> getPets(@RequestParam(required = false) Optional<String> specie) {
-		return petService.getPets(specie);
+	public List<Pet> getPets(
+			@RequestParam Optional<String> specie,
+			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Optional<LocalDate> date,
+			Sort sort,
+			Pageable pageable) {
+		return petService.getPets(specie, pageable);
 	}
 	
 	@GetMapping("/pets/{id}")

@@ -1,6 +1,7 @@
 package hillelee.pet;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,7 @@ public class PetService {
 	private final PetJpnRepository petRepository;
 	
 	
-	public List<Pet> getPets(Optional<String> specie) {
+	public List<Pet> getPets(Optional<String> specie, Pageable pageable) {
 		Predicate<Pet> specieFilter = specie.map(this::filterBySpecie)
 				.orElse(pet -> true);
 		

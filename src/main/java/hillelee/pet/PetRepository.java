@@ -13,8 +13,8 @@ public class PetRepository {
 	private AtomicInteger counter = new AtomicInteger(1);
 	
 	private static Map<Integer, Pet> pets = new ConcurrentHashMap<Integer, Pet>() {{
-		put(0, new Pet(0, "Tom", "cat", 3));
-		put(1, new Pet(1, "Jerry", "mouse", 1));
+//		put(0, new Pet(0, "Tom", "cat", 3));
+//		put(1, new Pet(1, "Jerry", "mouse", 1));
 	}};
 	
 	public Collection<Pet> findAll() {

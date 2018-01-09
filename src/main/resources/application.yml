@@ -2,15 +2,15 @@ clinic:
   name: 'myClinic'
   workingHours: '8-19'
 
-spring:
-  jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    hibernate.ddl-auto: create
-  datasource:
-    url: jdbc:postgresql:pet_clinic
-    username: postgres
-    password: postgres
+#spring:
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: true
+#    hibernate.ddl-auto: update
+#  datasource:
+#    url: jdbc:postgresql:pet_clinic
+#    username: postgres
+#    password: postgres
 
 #
 
